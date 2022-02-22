@@ -6,4 +6,5 @@ then
 	echo "vous avez rentré une date valide"
 else
 	echo "rentrer une date sous la forme DD-MM-AA"
+	echo "pas de changement"
 fi
