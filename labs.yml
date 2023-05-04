@@ -1,0 +1,14 @@
+---
+- name: All server setup 
+  become: yes
+  hosts: precedents
+  
+  roles:
+  - common
+
+- name: Web server setup 
+  become: yes
+  hosts: precedents
+
+  roles:
+  - apache

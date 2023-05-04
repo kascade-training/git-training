@@ -1,0 +1,54 @@
+** Lab #1:
+
+II-	Commandes Ad-hoc:
+
+1-	Tester la connexion vers tous les clients distants
+> ansible all -i inventory -m ping
+
+2-	Récupérer toutes les informations de la machine distante avant:
+> ansible <hostname> -m setup
+
+3-	Il n’est pas prudent de garder une connexion ssh vers l’utilisateur root ; utiliser le module user pour créer un utilisateur « ansible » dans les machines avant et apres avec un mot de passe ansible. 
+>
+
+4-	Supprimer l’indication de l’utilisateur dans l’inventaire et indiquer dorénavant dans la commande votre hôte cible « ansible ».
+>
+
+5-	Copier un fichier de votre machine locale vers le répertoire personnel de Ansible.
+>
+
+6-	Exécuter la commande ls pour vérifier que le fichier a bien été copié (toujours via Ansible bien sûr).
+>
+
+7-	Essayer de copier maintenant le fichier dans /var/log :
+>
+
+8-	Installer le paquet httpd dans la machine avant.
+>
+
+9-	Installer le paquet emacs sur la machine avant en faisant en sorte de mettre à jour la base de données.
+>
+
+10-	Vérifiez que les deux paquets sont bien installés en utilisant le module command.
+>
+
+11-	Copier un fichier depuis votre serveur local vers /var/www/html de la machine avant.
+>
+
+12-	Essayer d’accéder au serveur depuis le navigateur de votre pc portable.
+>
+
+13-	Si c’est réussi, désinstaller le paquet httpd.
+>
+
+14-	Créer deux groupes dans votre inventaire : précédents et suivants contenant respectivement les deux machines précédentes et deux machine suivantes.
+>
+
+15-	Tester la connexion au groupe précédents.
+>
+
+16-	Désinstaller emacs sur les machines du groupe suivants.
+>
+
+17-	Vérifier que emacs est bien désinstallé.
+>

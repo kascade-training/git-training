@@ -1,0 +1,53 @@
+- hosts: all
+  become: True
+  tasks:
+    - name: Install all the packages
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: True
+      loop:
+        - python
+        - python-setuptools
+        - python-dev
+        - build-essential
+        - python-pip
+        - python-mysqldb
+      ignore_errors: yes
+      tags: packages
+    - name: Ensure group "orsys" exists
+      group:
+        name: orsys
+        state: present
+      tags: groups
+    - name: Ensure group "alten" exists
+      group:
+        name: alten
+        state: present
+      tags: groups
+    - name: Ensure group "ansible" exists
+      group:
+        name: ansible
+        state: present
+      tags: groups
+    - name: make a new user "user1"
+      user:
+        name: user1
+        state: present
+        groups: "orsys, alten"
+        password: $6$c/CuRmitykVLHst$2lhp0ohRB8m/NDfGDBHWJyVlCGj5bKJD4ECjOMl90KPdvqKlqckkt901beDpElqVkTF8lBeA564j9I9Y1dsQw1
+      tags: users
+    - name: make a new user "user2"
+      user:
+        name: user2
+        state: present
+        groups: "orsys, alten"
+        password: $6$EsFGXVrOT.7d4VJ$uVlT/Aw.5rkRPGc9//Vi3Zvi4M90fA3eyG8mbYfBKxH/5GFNjgmGp810Rnq2Kj9WnsYdYgG9NzOZFj6vwoY5m.
+      tags: users
+    - name: make a new user "user3"
+      user:
+        name: user3
+        state: present
+        groups: "orsys, alten"
+        password: $6$OJSfPQ4aTmWKaW$FxP5o4A2lRYJSDX7WBvIctBBsT5Feua0harI82Qt7v88jWgYSEx2Vhnn36cIZG7bZmYfzcdGeYbz4jEN5BG6w1
+      tags: users

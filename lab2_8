@@ -1,0 +1,16 @@
+- hosts: precedents
+  become: True
+  tasks:
+    - name: Include variables
+      include_vars: 'packages.yml'
+
+    - name: "Get installed packages"
+      yum:
+        list: "installed"
+      register: installed_packages
+
+    - name: "Install missing packages"
+      package: 
+        state: "present"
+        name: "{{ item }}"
+      with_items: "{{ packages_to_install | difference(installed_packages | json_query('results[*].name')) }}"

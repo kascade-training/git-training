@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks: 
+   - name: Read secret file
+     include_vars: "secret.yaml"
+   - name: display secret value
+     debug:
+       msg: "{{ secret }}"
+   - name: write the secret to a csv file
+     copy: content="{{ secret }}" dest=debug.csv

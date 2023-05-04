@@ -1,0 +1,18 @@
+- name: Retrieve hostname
+  hosts: avant
+  tasks:
+    - name: Retrieve the hostname
+      debug:
+        var: ansible_hostname
+    - name: Distribution
+      debug: 
+        msg: "{{ ansible_distribution }}"
+    - name: Distribution version
+      debug: 
+        msg: "{{ ansible_distribution_version}}"
+    - name: Distribution major version
+      debug: 
+        msg: "{{ ansible_distribution_major_version }}"
+    - debug:
+        msg: " {{ ansible_hostname  }} uses {{ ansible_distribution }} 8"
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"

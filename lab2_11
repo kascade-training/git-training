@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: True
+
+- include: var_groups.yml
+- include: var_packages.yml

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: True
+  tasks:
+  - name: Load groups from file
+    include_vars: "groups.yml"
+  - name: Ensure groups exists
+    group:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ groupes }}"

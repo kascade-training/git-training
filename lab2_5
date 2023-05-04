@@ -1,0 +1,24 @@
+- hosts: precedents
+  vars_prompt:
+
+    - name: username
+      prompt: What is your username?
+      private: no
+
+    - name: expertise
+      prompt: What is your expertise domain?
+      private: no
+
+  tasks:
+    - name: Retrieve the hostname
+      command: hostname
+      register: result
+    - debug:
+        var: result.stdout
+    - name: Print a message
+      ansible.builtin.debug:
+        msg: 'Logging in as {{ username }}'
+      when: expertise == 'devops'
+    - debug:
+        msg: 'bye  {{ username }}'
+      when: expertise != 'devops'

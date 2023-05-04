@@ -1,0 +1,22 @@
+
+Katakoda labs install:
+
+
+1- Botstrapping using docker and sshkeygen exchange in a different way:
+https://www.katacoda.com/oliverveits/scenarios/ansible-bootstrap
+
+2- Install in ubuntu (inventory, playbook and package install):
+https://www.katacoda.com/jonatanblue/scenarios/1
+
+=====================================================
+* Login to my aws host:
+> ssh -i ahmed_cje_ireland.pem centos@10.54.168.94
+
+* Install ansible:
+> sudo yum install epel-release
+> sudo yum install ansible
+
+	Installed:
+	  ansible.noarch 0:2.9.15-1.el7
+
+*
